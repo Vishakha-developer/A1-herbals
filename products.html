@@ -6,267 +6,426 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our Products | A1 Herbals</title>
+    <title>Manage Products | A1 Herbals</title>
 
-    <link rel="stylesheet" href="../css/products.css">
-
+    <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    
+    <div class="admin-layout">
 
-<!-- HEADER -->
-<header class="main-header">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-    <!-- LOGO -->
-    <div class="logo">
-        <a href="../index.html">
-            A1 <span>Herbals</span>
-        </a>
+            <div class="sidebar-logo">
+                <i class="fas fa-leaf"></i>
+                <h2>A1 <span>Herbals</span></h2>
+            </div>
+
+            <p class="menu-heading">MAIN MENU</p>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-pie"></i>
+                    Dashboard
+                </a>
+
+                <a href="products.html" class="active">
+                    <i class="fas fa-box"></i>
+                    Products
+                </a>
+
+                <a href="orders.html">
+                    <i class="fas fa-shopping-bag"></i>
+                    Orders
+                </a>
+
+                <a href="customers.html">
+                    <i class="fas fa-users"></i>
+                    Customers
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html">
+                    <i class="fas fa-globe"></i>
+                    View Website
+                </a>
+
+                <a href="login.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <div>
+                        <h2>Manage Products</h2>
+                        <p>Manage your product inventory</p>
+                    </div>
+
+                </div>
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div>
+                        <h4>Admin</h4>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- PRODUCTS CONTENT -->
+            <section class="products-content">
+
+                <!-- PAGE HEADING -->
+                <div class="page-heading">
+
+                    <div>
+                        <h1>Products</h1>
+                        <p>Manage and organize your store products.</p>
+                    </div>
+
+                    <button class="add-product-btn" id="addProductBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Product
+                    </button>
+
+                </div>
+
+
+                <!-- SUMMARY -->
+                <div class="product-summary">
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+
+                        <div>
+                            <p>Total Products</p>
+                            <h2 id="totalProducts">0</h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon available-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+
+                        <div>
+                            <p>Available Products</p>
+                            <h2 id="availableProducts">0</h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-icon category-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+
+                        <div>
+                            <p>Total Categories</p>
+                            <h2 id="totalCategories">0</h2>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT TABLE CARD -->
+                <div class="content-card">
+
+                    <div class="table-heading">
+
+                        <div>
+                            <h2>All Products</h2>
+                            <p>View and manage your products</p>
+                        </div>
+
+                        <div class="product-search">
+
+                            <i class="fas fa-search"></i>
+
+                            <input
+                                type="text"
+                                id="productSearch"
+                                placeholder="Search products..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Stock</th>
+                                    <th>Category</th>
+                                    <th>Price (INR)</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="productTableBody">
+                                <!-- Actual database products will load here -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
     </div>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <a href="../index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="products.html" class="active">Our Products</a>
-        <a href="my-orders.html">My Orders</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
 
-    <!-- HEADER ICONS -->
-    <div class="header-icons">
+    <!-- ADD / EDIT PRODUCT MODAL -->
+    <div class="modal" id="productModal">
 
-        <!-- COUNTRY SELECTOR -->
-        <div class="country-selector">
-            <button class="country-btn" id="countryBtn">
-                <span id="countryFlag">🇮🇳</span>
-                <span id="countryName">India</span>
-                <span id="countryCurrency">₹</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
+        <div class="modal-content">
 
-            <div class="country-dropdown" id="countryDropdown">
-                <button class="country-option" data-country="IN">
-                    🇮🇳 India (INR ₹)
+            <div class="modal-heading">
+
+                <div>
+                    <h2 id="modalTitle">Add Product</h2>
+                    <p>Enter the product information below.</p>
+                </div>
+
+                <button type="button" class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
                 </button>
-                <button class="country-option" data-country="US">
-                    🇺🇸 USA (USD $)
-                </button>
-            </div>
-        </div>
-
-        <a href="login.html" id="accountLink" aria-label="Account">
-            <i class="fa-regular fa-user"></i>
-        </a>
-
-        <a href="cart.html" aria-label="Cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-
-    </div>
-
-</header>
-
-
-
-
-    <!-- PRODUCTS HERO SECTION -->
-    <section class="products-hero">
-
-        <div class="hero-content">
-
-            <p class="hero-subtitle">EXPLORE OUR COLLECTION</p>
-
-            <h1>Our Products</h1>
-
-            <p class="hero-description">
-                Discover our complete collection of premium products.
-                Find the right product for your needs at A1 Herbals.
-            </p>
-
-            <div class="breadcrumb">
-
-                <a href="../index.html">Home</a>
-
-                <i class="fa-solid fa-angle-right"></i>
-
-                <span>Our Products</span>
 
             </div>
 
-        </div>
 
-    </section>
+            <form id="productForm">
 
-
-    <!-- PRODUCT FILTER SECTION -->
-    <section class="product-filter-section">
-
-        <div class="filter-heading">
-
-            <h2>Find Your Products</h2>
-
-            <p>
-                Browse our collection and find what you are looking for.
-            </p>
-
-        </div>
+                <input type="hidden" id="editProductId">
 
 
-        <!-- SEARCH -->
-        <div class="product-search">
+                <!-- PRODUCT NAME -->
+                <div class="form-group">
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+                    <label for="productName">Product Name</label>
 
-            <input
-                type="text"
-                id="productSearch"
-                placeholder="Search products by name or SKU..."
-            >
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="Enter product name"
+                        required
+                    >
 
-        </div>
+                </div>
 
+                <!-- PRODUCT SKU -->
+<div class="form-group">
 
-        <!-- CATEGORY FILTERS -->
-        <div class="category-filters">
+    <label for="productSKU">Product SKU</label>
 
-            <button class="filter-btn active" data-category="all" type="button">
-                All Products
-            </button>
+    <input
+        type="text"
+        id="productSKU"
+        placeholder="Enter product SKU"
+    >
 
-            <button class="filter-btn" data-category="capsules" type="button">
-                Capsules
-            </button>
-
-            <button class="filter-btn" data-category="tablets" type="button">
-                Tablets
-            </button>
-
-            <button class="filter-btn" data-category="other" type="button">
-                Other Products
-            </button>
-
-        </div>
-
-    </section>
+</div>
 
 
-    <!-- PRODUCTS CONTAINER -->
-    <section class="products-container">
+                <!-- CATEGORY AND STOCK -->
+                <div class="form-row">
 
-        <div class="products-top">
+                    <div class="form-group">
 
-            <h2>Our Collection</h2>
+                        <label for="productCategory">Category</label>
 
-            <p id="productsCount">
-                Loading products...
-            </p>
+                        <select id="productCategory" required>
+                            <option value="">Select Category</option>
+                        </select>
 
-        </div>
-
-
-        <!-- DYNAMIC PRODUCTS GRID -->
-        <div class="products-grid" id="productsGrid">
-
-            <!-- Products will be loaded dynamically from MySQL -->
-
-        </div>
+                    </div>
 
 
-        <!-- LOADING MESSAGE -->
-        <p
-            id="productsLoadingMessage"
-            class="no-products-message"
+                    <div class="form-group">
+
+                        <label for="productStock">Stock Quantity</label>
+
+                        <input
+                            type="number"
+                            id="productStock"
+                            min="0"
+                            placeholder="Enter stock"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRICE AND IMAGE -->
+                <!-- INDIA AND USA PRICES -->
+<div class="form-row">
+
+    <div class="form-group">
+
+        <label for="priceINR">Price (INR ₹)</label>
+
+        <input
+            type="number"
+            id="priceINR"
+            min="0"
+            step="0.01"
+            placeholder="Enter India price"
+            required
         >
-            Loading products...
-        </p>
 
+    </div>
 
-        <!-- NO PRODUCTS FOUND -->
-        <p
-            id="noProductsMessage"
-            class="no-products-message"
+    <div class="form-group">
+
+        <label for="priceUSD">Price (USD $)</label>
+
+        <input
+            type="number"
+            id="priceUSD"
+            min="0"
+            step="0.01"
+            placeholder="Enter USA price"
+            required
         >
-            No products found. Please try another search.
-        </p>
 
-    </section>
+    </div>
 
-
-    <!-- JAVASCRIPT -->
-    <script src="../js/script.js"></script>
-    <script src="../js/products.js"></script>
+</div>
 
 
-<!-- FOOTER SECTION -->
-<footer class="main-footer">
-    <div class="footer-container">
+<!-- PRODUCT IMAGE -->
+<div class="form-group">
 
-        <!-- COMPANY INFO -->
-        <div class="footer-column footer-about">
-            <a href="../index.html" class="footer-logo">
-                <i class="fa-solid fa-leaf"></i>
-                <span>A1 <strong>Herbals</strong></span>
-            </a>
+    <label for="productImage">Product Image Path</label>
 
-            <p>
-                Explore the A1 Herbals product collection
-                and find product information through our website.
-            </p>
+    <input
+        type="text"
+        id="productImage"
+        placeholder="Enter image path"
+        required
+    >
 
-            <div class="footer-social">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
+</div>
 
-        <!-- QUICK LINKS -->
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Shop All</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="../admin/login.html">Admin Login</a></li>
-            </ul>
-        </div>
+<!-- COUNTRY AVAILABILITY -->
+<div class="form-group">
 
-        <!-- CUSTOMER SERVICE -->
-        <div class="footer-column">
-            <h3>Customer Service</h3>
-            <ul>
-                <li><a href="contact.html">Contact Support</a></li>
-                <li><a href="cart.html">Shopping Cart</a></li>
-                <li><a href="register.html">My Account</a></li>
-            </ul>
-        </div>
+    <label>Product Availability</label>
 
-        <!-- INFORMATION -->
-        <div class="footer-column">
-            <h3>Information</h3>
-            <ul>
-                <li><a href="about.html">Company Information</a></li>
-                <li><a href="contact.html">Enquiries</a></li>
-            </ul>
+    <div class="country-availability">
+
+        <label>
+            <input type="checkbox" id="availableIndia">
+            Available in India
+        </label>
+
+        <label>
+            <input type="checkbox" id="availableUSA">
+            Available in USA
+        </label>
+
+    </div>
+
+</div>
+
+
+                <!-- DESCRIPTION -->
+                <div class="form-group">
+
+                    <label for="productDescription">Description</label>
+
+                    <input
+                        type="text"
+                        id="productDescription"
+                        placeholder="Enter product description"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelModal"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Product
+                    </button>
+
+                </div>
+
+            </form>
+
         </div>
 
     </div>
 
-    <!-- FOOTER BOTTOM -->
-    <div class="footer-bottom">
-        <p>© 2026 A1 Herbals. All Rights Reserved.</p>
-        <p>Designed with <i class="fa-solid fa-heart"></i> for A1 Herbals</p>
-    </div>
-</footer>
+
+    <script src="js/products.js"></script>
 
 </body>
-
 </html>

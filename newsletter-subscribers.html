@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Newsletter Subscribers | A1 Herbals</title>
+
+    <link rel="stylesheet" href="css/customers.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>AllDay <span>Pharma</span></h2>
+            <p>Admin Panel</p>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="products.html">
+                <i class="fa-solid fa-box"></i>
+                <span>Products</span>
+            </a>
+
+            <a href="orders.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Orders</span>
+            </a>
+
+            <a href="customers.html">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="contact-messages.html">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact Messages</span>
+            </a>
+
+            <a href="newsletter-subscribers.html" class="active">
+                <i class="fa-solid fa-newspaper"></i>
+                <span>Newsletter Subscribers</span>
+            </a>
+
+            <a href="../index.html">
+                <i class="fa-solid fa-globe"></i>
+                <span>View Website</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                <h2>Newsletter Subscribers</h2>
+                <p>Manage newsletter subscriptions</p>
+            </div>
+
+            <div class="admin-profile">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </div>
+
+        </header>
+
+
+        <!-- NEWSLETTER CONTENT -->
+        <section class="customers-content">
+
+            <div class="page-heading">
+
+                <div>
+                    <h1>Newsletter Subscribers</h1>
+                    <p>View and manage newsletter subscriber records.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SUBSCRIBER STATISTICS -->
+            <div class="customer-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon total-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Total Subscribers</p>
+                        <h2 id="totalSubscribers">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon active-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Active Subscribers</p>
+                        <h2 id="activeSubscribers">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon new-icon">
+                        <i class="fa-solid fa-user-minus"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Unsubscribed</p>
+                        <h2 id="unsubscribedSubscribers">0</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUBSCRIBERS TABLE -->
+            <div class="customers-table-section">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2>All Subscribers</h2>
+                        <p>View newsletter subscription information</p>
+                    </div>
+
+                    <div class="table-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="subscriberSearch"
+                            placeholder="Search email..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Subscriber ID</th>
+                                <th>Email Address</th>
+                                <th>Subscription Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="subscribersTableBody">
+
+                            <tr>
+                                <td colspan="4" class="empty-message">
+                                    Loading subscribers...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div id="noSubscribers" style="display: none;">
+                    No subscribers found.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/newsletter-subscribers.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orders Management | A1 Herbals</title>
+
+    <link rel="stylesheet" href="css/orders.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>AllDay <span>Pharma</span></h2>
+            <p>Admin Panel</p>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="products.html">
+                <i class="fa-solid fa-box"></i>
+                <span>Products</span>
+            </a>
+
+            <a href="orders.html" class="active">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Orders</span>
+            </a>
+
+            <a href="customers.html">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="../index.html">
+                <i class="fa-solid fa-globe"></i>
+                <span>View Website</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                <h2>Orders Management</h2>
+                <p>Manage and track customer orders</p>
+            </div>
+
+            <div class="admin-profile">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+        <section class="orders-content">
+
+            <!-- PAGE HEADING -->
+            <div class="page-heading">
+
+                <div>
+                    <h1>Orders</h1>
+                    <p>View and manage all customer orders.</p>
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+            <div class="order-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon total-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Total Orders</p>
+                        <h2 id="totalOrders">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Pending Orders</p>
+                        <h2 id="pendingOrders">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon completed-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Completed Orders</p>
+                        <h2 id="completedOrders">0</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIEW ORDER MODAL -->
+            <div class="order-modal" id="viewOrderModal">
+
+                <div class="order-modal-content">
+
+                    <div class="modal-header">
+
+                        <div>
+                            <h2>Order Details</h2>
+                            <p>Complete customer order information</p>
+                        </div>
+
+                        <button type="button"
+                            id="closeViewOrderModal"
+                            class="close-modal">
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="order-details">
+
+                        <p>
+                            <strong>Order ID:</strong>
+                            <span id="viewOrderId"></span>
+                        </p>
+
+                        <p>
+                            <strong>Customer:</strong>
+                            <span id="viewOrderCustomer"></span>
+                        </p>
+
+                        <p>
+                            <strong>Product:</strong>
+                            <span id="viewOrderProduct"></span>
+                        </p>
+
+                        <p>
+                            <strong>Order Date:</strong>
+                            <span id="viewOrderDate"></span>
+                        </p>
+
+                        <p>
+                            <strong>Amount:</strong>
+                            <span id="viewOrderAmount"></span>
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            <span id="viewOrderStatus"></span>
+                        </p>
+
+                    </div>
+
+
+                    <div class="modal-actions">
+
+                        <button type="button"
+                            id="closeViewOrderBtn"
+                            class="cancel-btn">
+
+                            Close
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDERS TABLE -->
+            <div class="orders-table-section">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2>All Orders</h2>
+                        <p>Manage customer order details</p>
+                    </div>
+
+                    <div class="table-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text"
+                            id="orderSearch"
+                            placeholder="Search orders...">
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="ordersTableBody">
+
+                            <tr>
+                                <td colspan="7" class="empty-message">
+                                    Loading orders...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/orders.js"></script>
+
+</body>
+</html>

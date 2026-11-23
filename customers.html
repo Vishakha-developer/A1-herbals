@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customers Management | A1 Herbals</title>
+
+    <link rel="stylesheet" href="css/customers.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>AllDay <span>Pharma</span></h2>
+            <p>Admin Panel</p>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="products.html">
+                <i class="fa-solid fa-box"></i>
+                <span>Products</span>
+            </a>
+
+            <a href="orders.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Orders</span>
+            </a>
+
+            <a href="customers.html" class="active">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="../index.html">
+                <i class="fa-solid fa-globe"></i>
+                <span>View Website</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                <h2>Customers Management</h2>
+                <p>Manage and view registered customers</p>
+            </div>
+
+            <div class="admin-profile">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </div>
+
+        </header>
+
+
+        <!-- CUSTOMERS CONTENT -->
+        <section class="customers-content">
+
+            <div class="page-heading">
+
+                <div>
+                    <h1>Customers</h1>
+                    <p>View and manage all registered customers.</p>
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOMER STATISTICS -->
+            <div class="customer-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon total-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Total Customers</p>
+                        <h2 id="totalCustomers">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon active-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>Active Customers</p>
+                        <h2 id="activeCustomers">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon new-icon">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+
+                    <div class="stat-info">
+                        <p>New Customers</p>
+                        <h2 id="newCustomers">0</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOMERS TABLE -->
+            <div class="customers-table-section">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2>All Customers</h2>
+                        <p>Manage customer information and accounts</p>
+                    </div>
+
+                    <div class="table-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text"
+                            id="customerSearch"
+                            placeholder="Search customers...">
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Registration Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customersTableBody">
+
+                            <tr>
+                                <td colspan="7" class="empty-message">
+                                    No customers found.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+<!-- CUSTOMER DETAILS MODAL -->
+
+<div class="customer-modal" id="customerDetailsModal">
+
+    <div class="customer-modal-content">
+
+        <div class="customer-modal-header">
+            <h2>Customer Details</h2>
+
+            <button type="button" id="closeCustomerModal">
+                &times;
+            </button>
+        </div>
+
+        <div id="customerDetailsContent">
+            Loading customer details...
+        </div>
+
+    </div>
+
+</div>
+
+
+    </main>
+
+
+    <script src="js/customers.js"></script>
+
+</body>
+</html>
