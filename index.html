@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A1 Herbals | Your Wellness, Our Priority</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="home-page">
+
+<!-- TOP ANNOUNCEMENT BAR -->
+<div class="top-bar">
+    <p>A1 Herbals – Your Wellness, Our Priority</p>
+</div>
+
+<!-- HEADER -->
+<header class="main-header">
+    <div class="header-container">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </span>
+
+                <span class="logo-text">
+                    A1<span>Herbals</span>
+                    <small>PRIVATE LIMITED</small>
+                </span>
+            </a>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="search-box" id="homeSearchBox">
+            <input
+                type="text"
+                id="homeProductSearch"
+                placeholder="Search products..."
+            >
+
+            <button type="button" id="homeSearchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <!-- HEADER ACTIONS -->
+        <div class="header-actions">
+
+            <!-- ACCOUNT -->
+            <a href="pages/login.html" class="header-link" id="accountLink">
+                <i class="fa-regular fa-user"></i>
+                <span id="accountText">Account</span>
+            </a>
+
+            <!-- CART -->
+            <a href="pages/cart.html" class="header-link cart-link">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Cart</span>
+                <small>0</small>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/products.html">Our Products</a></li>
+                <li><a href="pages/contact.html">Contact Us</a></li>
+
+                <!-- COUNTRY SELECTOR -->
+                <li class="country-selector">
+                    <button class="country-btn" id="countryBtn">
+                        <span id="countryFlag">🇮🇳</span>
+                        <span id="countryName">India</span>
+                        <span id="countryCurrency">₹</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="country-dropdown" id="countryDropdown">
+                        <button class="country-option" data-country="IN">
+                            🇮🇳 India (INR ₹)
+                        </button>
+
+                        <button class="country-option" data-country="US">
+                            🇺🇸 USA (USD $)
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+<!-- NEW HERO SECTION -->
+
+<!-- PREMIUM HERO BANNERS -->
+
+<!-- FULL WIDTH HERO SLIDER -->
+<section class="hero-slider">
+
+    <div class="slides">
+
+        <!-- BANNER 1 -->
+        <div class="slide active"
+        style="background-image: url('https://diversehealthservices.com/assets/img/photos/holistic-hero.jpg');"
+
+
+            <div class="banner-overlay"></div>
+
+            <div class="banner-content">
+                <span>A1 HERBALS</span>
+
+                <h1>
+                    Discover the World of
+                    <strong>Herbal Wellness</strong>
+                </h1>
+
+                <p>
+                    Explore our collection of herbal products
+                    and discover more about A1 Herbals.
+                </p>
+
+                <a href="pages/products.html" class="banner-btn">
+                    Explore Products
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- BANNER 2 -->
+        <div class="slide"
+             style="background-image: url('https://cdn.shopify.com/s/files/1/0574/2513/3764/files/INNER_92121a71-6c0b-478d-a02e-55592dd98afd.jpg?v=1712568829');"
+
+
+
+            <div class="banner-overlay"></div>
+
+            <div class="banner-content">
+                <span>EXPLORE OUR COLLECTION</span>
+
+                <h1>
+                    Find Your Favourite
+                    <strong>Herbal Products</strong>
+                </h1>
+
+                <p>
+                    Browse our product collection and discover
+                    the range available at A1 Herbals.
+                </p>
+
+                <a href="pages/products.html" class="banner-btn">
+                    Shop Now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- BANNER 3 -->
+        <div class="slide"
+            style="background-image: url('https://images.apollo247.in/qamomandbaby/Adobe_Stock_1043339797_776cd082f9/Adobe_Stock_1043339797_776cd082f9.jpeg?tr=q-80%2Cf-webp%2Cw-400%2Cdpr-3%2Cc-at_max+1200w');"
+
+
+            <div class="banner-overlay"></div>
+
+            <div class="banner-content">
+                <span>WELCOME TO A1 HERBALS</span>
+
+                <h1>
+                    Nature Inspired
+                    <strong>Everyday Wellness</strong>
+                </h1>
+
+                <p>
+                    Get to know our brand, explore our products
+                    and discover the A1 Herbals experience.
+                </p>
+
+                <a href="pages/about.html" class="banner-btn">
+                    Know More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SLIDER ARROWS -->
+    <button class="slider-arrow prev" id="prevSlide">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="slider-arrow next" id="nextSlide">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+
+    <!-- SLIDER DOTS -->
+    <div class="slider-dots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+    </div>
+
+</section>
+
+
+
+<!-- SHOP BY CATEGORY -->
+
+<!-- SHOP BY CATEGORY -->
+<section class="categories-section">
+
+    <!-- DECORATIVE ICONS -->
+    <i class="fa-solid fa-leaf category-decoration leaf-left"></i>
+    <i class="fa-solid fa-plus category-decoration plus-right"></i>
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading">
+
+        <div class="category-label">
+            <span></span>
+            EXPLORE OUR COLLECTION
+            <span></span>
+        </div>
+
+        <h2>
+            Shop by <strong>Category</strong>
+        </h2>
+
+        <p>
+            Discover products from our different collections.
+        </p>
+
+    </div>
+
+
+    <!-- CATEGORY CARDS -->
+    <div class="categories-container">
+
+       
+        <!-- CAPSULES -->
+<a href="pages/products.html?category=capsules"
+   class="category-card capsules-card">
+
+    <div class="category-card-content">
+
+        <div class="category-icon">
+            <i class="fa-solid fa-capsules"></i>
+        </div>
+
+        <h3>Capsules</h3>
+
+        <p>
+            Explore our premium capsule collection.
+        </p>
+
+        
+
+        <span class="category-link">
+            Explore Collection
+            <i class="fa-solid fa-arrow-right"></i>
+        </span>
+
+    </div>
+
+
+
+</a>
+
+
+        <!-- TABLETS -->
+        <a href="pages/products.html?category=tablets"
+           class="category-card tablets-card">
+
+            <div class="category-card-content">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-tablets"></i>
+                </div>
+
+                <h3>Tablets</h3>
+
+                <p>
+                    Discover our tablet collection.
+                </p>
+
+                <span class="product-count">300+ Products</span>
+
+                <span class="category-link">
+                    Explore Collection
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+            
+
+        </a>
+
+
+        <!-- OTHER PRODUCTS -->
+        <a href="pages/products.html?category=other"
+           class="category-card other-card">
+
+            <div class="category-card-content">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                </div>
+
+                <h3>Other Products</h3>
+
+                <p>
+                    Explore our other product ranges.
+                </p>
+
+                <span class="product-count">150+ Products</span>
+
+                <span class="category-link">
+                    Explore Collection
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+            
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- FEATURED PRODUCTS -->
+<section class="featured-section">
+    <div class="featured-heading">
+        <div>
+            <span>OUR COLLECTION</span>
+            <h2>Featured <strong>Products</strong></h2>
+            <p>Explore selected products from A1 Herbals.</p>
+        </div>
+
+        <a href="pages/products.html" class="view-all">
+            View All Products
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="featured-container">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card" data-country="IN">
+            <div class="product-image extra-strong-images">
+                <img
+                    src="images/Extra Strong Front Side Mockup.png"
+                    alt="Extra Strong Front View"
+                >
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">Capsules</span>
+                <h3>Extra Strong</h3>
+
+                <p class="product-price"
+                   data-price-in="499"
+                   data-price-us="19.99">
+                </p>
+
+                <a href="pages/products.html?category=capsules" class="product-btn">
+                    View Product
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card" data-country="IN">
+            <div class="product-image">
+                <img src="images/products/dragon.jpg" alt="Dragon">
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">Capsules</span>
+                <h3>Dragon</h3>
+
+                <p class="product-price"
+                   data-price-in="599"
+                   data-price-us="24.99">
+                </p>
+
+                <a href="pages/products.html?category=capsules" class="product-btn">
+                    View Product
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card" data-country="US">
+            <div class="product-image">
+                <img src="images/LION KING 200K 2PK.jpg" alt="Lion King">
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">Tablets</span>
+                <h3>Lion King</h3>
+
+                <p class="product-price"
+                   data-price-in="399"
+                   data-price-us="16.99">
+                </p>
+
+                <a href="pages/products.html?category=tablets" class="product-btn">
+                    View Product
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card" data-country="US">
+            <div class="product-image">
+                <img src="images/HULK HERBAL TABLETS.jpg" alt="Hulk">
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">Tablets</span>
+                <h3>Hulk</h3>
+
+                <p class="product-price"
+                   data-price-in="449"
+                   data-price-us="18.99">
+                </p>
+
+                <a href="pages/products.html?category=tablets" class="product-btn">
+                    View Product
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- WHY CHOOSE A1 HERBALS -->
+<section class="why-section">
+    <div class="section-heading">
+        <span>ABOUT OUR APPROACH</span>
+        <h2>Why Choose <strong>A1 Herbals?</strong></h2>
+        <p>Explore our approach to product information and customer experience.</p>
+    </div>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <div class="why-icon">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3>Product Variety</h3>
+            <p>
+                Explore a diverse collection of products
+                across different categories and pack sizes.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <h3>Product Information</h3>
+            <p>
+                Find product details and available
+                information in one convenient place.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <h3>Explore Collections</h3>
+            <p>
+                Browse our product collections
+                and discover different options.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3>Customer Support</h3>
+            <p>
+                Get in touch with our team
+                for product-related enquiries.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT A1 HERBALS -->
+<section class="about-section">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900"
+                alt="Healthcare and pharmaceutical products"
+            >
+        </div>
+
+        <div class="about-content">
+            <span class="about-label">GET TO KNOW US</span>
+
+            <h2>Discover <strong>A1 Herbals</strong></h2>
+
+            <p>
+                Welcome to A1 Herbals. Explore our product
+                collections and learn more about the products
+                available through our platform.
+            </p>
+
+            <p>
+                We aim to make browsing product information
+                and exploring our collections simple and convenient.
+            </p>
+
+            <a href="pages/about.html" class="about-btn">
+                Learn More
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-section">
+    <div class="newsletter-container">
+
+        <div class="newsletter-content">
+            <span>STAY CONNECTED</span>
+            <h2>Stay Updated with <strong>A1 Herbals</strong></h2>
+
+            <p>
+                Subscribe to receive updates about our product
+                collections and latest announcements.
+            </p>
+        </div>
+
+        <form class="newsletter-form" id="newsletterForm">
+            <input
+                type="email"
+                id="newsletterEmail"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </form>
+
+    </div>
+</section>
+
+
+<!-- FOOTER SECTION -->
+<footer class="main-footer">
+    <div class="footer-container">
+
+        <!-- COMPANY INFO -->
+        <div class="footer-column footer-about">
+            <a href="index.html" class="footer-logo">
+                <i class="fa-solid fa-leaf"></i>
+                <span>A1 <strong>Herbals</strong></span>
+            </a>
+
+            <p>
+                Explore the A1 Herbals product collection
+                and find product information through our website.
+            </p>
+
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/products.html">Shop All</a></li>
+                <li><a href="pages/contact.html">Contact Us</a></li>
+                <li><a href="admin/login.html">Admin Login</a></li>
+            </ul>
+        </div>
+
+        <!-- CUSTOMER SERVICE -->
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+
+            <ul>
+                <li><a href="pages/contact.html">Contact Support</a></li>
+                <li><a href="pages/cart.html">Shopping Cart</a></li>
+                <li><a href="pages/register.html">My Account</a></li>
+            </ul>
+        </div>
+
+        <!-- INFORMATION -->
+        <div class="footer-column">
+            <h3>Information</h3>
+
+            <ul>
+                <li><a href="pages/about.html">Company Information</a></li>
+                <li><a href="pages/contact.html">Enquiries</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+        <p>© 2026 A1 Herbals. All Rights Reserved.</p>
+        <p>Designed with <i class="fa-solid fa-heart"></i> for A1 Herbals</p>
+    </div>
+</footer>
+
+
+<!-- CHATBOT -->
+<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chatbot">
+    <i class="fa-solid fa-comments"></i>
+</button>
+
+<div class="chatbot-window" id="chatbotWindow">
+
+    <!-- CHAT HEADER -->
+    <div class="chatbot-header">
+        <div class="chatbot-title">
+            <i class="fa-solid fa-leaf"></i>
+
+            <div>
+                <h3>A1 Herbals Assistant</h3>
+                <p>Online | How can we help?</p>
+            </div>
+        </div>
+
+        <button class="chatbot-close" id="chatbotClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- CHAT BODY -->
+    <div class="chatbot-body" id="chatbotBody">
+        <div class="bot-message">
+            Hello! Welcome to A1 Herbals. 👋
+            How can I help you today?
+        </div>
+    </div>
+
+    <!-- CHAT INPUT -->
+    <div class="chatbot-input-area">
+        <input
+            type="text"
+            id="chatbotInput"
+            placeholder="Type your question..."
+        >
+
+        <button class="chatbot-send" id="chatbotSend">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT FILES -->
+<script src="js/script.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/newsletter.js"></script>
+<script src="js/home-search.js"></script>
+
+</body>
+</html>

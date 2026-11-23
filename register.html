@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | A1 Herbals</title>
+
+    <link rel="stylesheet" href="../css/register.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <!-- Left Section -->
+        <div class="register-left">
+
+            <h1>A1 Herbals</h1>
+
+            <h2>Your Health, Your Choice.</h2>
+
+            <p>
+                Create your account and enjoy a simple
+                and convenient shopping experience.
+            </p>
+
+        </div>
+
+
+        <!-- Right Section -->
+        <div class="register-right">
+
+            <div class="register-form">
+
+                <h2>Create Account</h2>
+
+                <p>Sign up to get started with A1 Herbals.</p>
+
+                
+<form id="registerForm">
+
+    <!-- Full Name -->
+    <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+            type="text"
+            id="fullName"
+            placeholder="Enter your full name"
+            required
+        >
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+            required
+        >
+    </div>
+
+    <!-- Mobile Number -->
+    <div class="form-group">
+        <label for="mobile">Mobile Number</label>
+        <input
+            type="tel"
+            id="mobile"
+            placeholder="Enter mobile number"
+            required
+        >
+    </div>
+
+    <!-- Country -->
+    <div class="form-group">
+        <label for="registerCountry">Country</label>
+
+        <select id="registerCountry" required>
+            <option value="">Select Country</option>
+            <option value="IN">India</option>
+            <option value="US">USA</option>
+        </select>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Create password"
+            required
+        >
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm password"
+            required
+        >
+    </div>
+
+    <!-- Terms -->
+    <div class="terms-group">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">
+            I agree to the Terms & Conditions
+        </label>
+    </div>
+
+    <button type="submit" class="register-btn">
+        Create Account
+    </button>
+
+    <p class="login-link">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </p>
+
+</form>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>

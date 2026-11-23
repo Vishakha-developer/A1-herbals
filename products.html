@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Products | A1 Herbals</title>
+
+    <link rel="stylesheet" href="../css/products.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    
+
+<!-- HEADER -->
+<header class="main-header">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <a href="../index.html">
+            A1 <span>Herbals</span>
+        </a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html" class="active">Our Products</a>
+        <a href="my-orders.html">My Orders</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- HEADER ICONS -->
+    <div class="header-icons">
+
+        <!-- COUNTRY SELECTOR -->
+        <div class="country-selector">
+            <button class="country-btn" id="countryBtn">
+                <span id="countryFlag">🇮🇳</span>
+                <span id="countryName">India</span>
+                <span id="countryCurrency">₹</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="country-dropdown" id="countryDropdown">
+                <button class="country-option" data-country="IN">
+                    🇮🇳 India (INR ₹)
+                </button>
+                <button class="country-option" data-country="US">
+                    🇺🇸 USA (USD $)
+                </button>
+            </div>
+        </div>
+
+        <a href="login.html" id="accountLink" aria-label="Account">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+
+    </div>
+
+</header>
+
+
+
+
+    <!-- PRODUCTS HERO SECTION -->
+    <section class="products-hero">
+
+        <div class="hero-content">
+
+            <p class="hero-subtitle">EXPLORE OUR COLLECTION</p>
+
+            <h1>Our Products</h1>
+
+            <p class="hero-description">
+                Discover our complete collection of premium products.
+                Find the right product for your needs at A1 Herbals.
+            </p>
+
+            <div class="breadcrumb">
+
+                <a href="../index.html">Home</a>
+
+                <i class="fa-solid fa-angle-right"></i>
+
+                <span>Our Products</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT FILTER SECTION -->
+    <section class="product-filter-section">
+
+        <div class="filter-heading">
+
+            <h2>Find Your Products</h2>
+
+            <p>
+                Browse our collection and find what you are looking for.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="product-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="Search products by name or SKU..."
+            >
+
+        </div>
+
+
+        <!-- CATEGORY FILTERS -->
+        <div class="category-filters">
+
+            <button class="filter-btn active" data-category="all" type="button">
+                All Products
+            </button>
+
+            <button class="filter-btn" data-category="capsules" type="button">
+                Capsules
+            </button>
+
+            <button class="filter-btn" data-category="tablets" type="button">
+                Tablets
+            </button>
+
+            <button class="filter-btn" data-category="other" type="button">
+                Other Products
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS CONTAINER -->
+    <section class="products-container">
+
+        <div class="products-top">
+
+            <h2>Our Collection</h2>
+
+            <p id="productsCount">
+                Loading products...
+            </p>
+
+        </div>
+
+
+        <!-- DYNAMIC PRODUCTS GRID -->
+        <div class="products-grid" id="productsGrid">
+
+            <!-- Products will be loaded dynamically from MySQL -->
+
+        </div>
+
+
+        <!-- LOADING MESSAGE -->
+        <p
+            id="productsLoadingMessage"
+            class="no-products-message"
+        >
+            Loading products...
+        </p>
+
+
+        <!-- NO PRODUCTS FOUND -->
+        <p
+            id="noProductsMessage"
+            class="no-products-message"
+        >
+            No products found. Please try another search.
+        </p>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/script.js"></script>
+    <script src="../js/products.js"></script>
+
+
+<!-- FOOTER SECTION -->
+<footer class="main-footer">
+    <div class="footer-container">
+
+        <!-- COMPANY INFO -->
+        <div class="footer-column footer-about">
+            <a href="../index.html" class="footer-logo">
+                <i class="fa-solid fa-leaf"></i>
+                <span>A1 <strong>Herbals</strong></span>
+            </a>
+
+            <p>
+                Explore the A1 Herbals product collection
+                and find product information through our website.
+            </p>
+
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Shop All</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="../admin/login.html">Admin Login</a></li>
+            </ul>
+        </div>
+
+        <!-- CUSTOMER SERVICE -->
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="contact.html">Contact Support</a></li>
+                <li><a href="cart.html">Shopping Cart</a></li>
+                <li><a href="register.html">My Account</a></li>
+            </ul>
+        </div>
+
+        <!-- INFORMATION -->
+        <div class="footer-column">
+            <h3>Information</h3>
+            <ul>
+                <li><a href="about.html">Company Information</a></li>
+                <li><a href="contact.html">Enquiries</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+        <p>© 2026 A1 Herbals. All Rights Reserved.</p>
+        <p>Designed with <i class="fa-solid fa-heart"></i> for A1 Herbals</p>
+    </div>
+</footer>
+
+</body>
+
+</html>

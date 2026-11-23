@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Account | A1 Herbals</title>
+
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="profile-header">
+
+        <a href="../index.html" class="profile-logo">
+            <i class="fa-solid fa-leaf"></i>
+            AllDay<span>Pharma</span>
+        </a>
+
+        <a href="../index.html" class="back-home">
+            <i class="fa-solid fa-house"></i>
+            Back to Home
+        </a>
+
+    </header>
+
+
+    <!-- PROFILE SECTION -->
+    <main class="profile-container">
+
+        <div class="profile-heading">
+            <h1>My Account</h1>
+            <p>Manage your personal information and account details.</p>
+        </div>
+
+
+        <div class="profile-card">
+
+            <!-- PROFILE TOP -->
+            <div class="profile-top">
+
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="profile-user-info">
+                    <h2 id="profileName">User Name</h2>
+                    <p>A1 Herbals Member</p>
+                </div>
+
+            </div>
+
+
+            <!-- PERSONAL DETAILS -->
+            <div class="profile-details">
+
+                <h3>Personal Information</h3>
+
+                <div class="detail-row">
+                    <div class="detail-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                    <div>
+                        <span>Full Name</span>
+                        <p id="detailName">-</p>
+                    </div>
+                </div>
+
+
+                <div class="detail-row">
+                    <div class="detail-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <span>Email Address</span>
+                        <p id="detailEmail">-</p>
+                    </div>
+                </div>
+
+
+                <div class="detail-row">
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div>
+                        <span>Mobile Number</span>
+                        <p id="detailMobile">-</p>
+                    </div>
+                </div>
+
+
+                <div class="detail-row">
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+
+                    <div>
+                        <span>Selected Country</span>
+                        <p id="detailCountry">-</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+<!-- EDIT PROFILE FORM -->
+<div class="edit-profile-form" id="editProfileForm">
+
+    <h3>Edit Personal Information</h3>
+
+    <div class="form-group">
+        <label for="editName">Full Name</label>
+        <input type="text" id="editName" placeholder="Enter your full name">
+    </div>
+
+    <div class="form-group">
+        <label for="editEmail">Email Address</label>
+        <input type="email" id="editEmail" placeholder="Enter your email">
+    </div>
+
+    <div class="form-group">
+        <label for="editMobile">Mobile Number</label>
+        <input type="tel" id="editMobile" placeholder="Enter your mobile number">
+    </div>
+
+    <div class="edit-form-buttons">
+        <button type="button" id="saveProfileBtn" class="save-btn">
+            <i class="fa-solid fa-check"></i>
+            Save Changes
+        </button>
+
+        <button type="button" id="cancelEditBtn" class="cancel-btn">
+            Cancel
+        </button>
+    </div>
+
+</div>
+
+ 
+<!-- CHANGE PASSWORD FORM -->
+<div class="change-password-form" id="changePasswordForm">
+
+    <h3>Change Password</h3>
+
+    <div class="form-group">
+        <label for="currentPassword">Current Password</label>
+        <input type="password" id="currentPassword"
+            placeholder="Enter current password">
+    </div>
+
+    <div class="form-group">
+        <label for="newPassword">New Password</label>
+        <input type="password" id="newPassword"
+            placeholder="Enter new password">
+    </div>
+
+    <div class="form-group">
+        <label for="confirmNewPassword">Confirm New Password</label>
+        <input type="password" id="confirmNewPassword"
+            placeholder="Confirm new password">
+    </div>
+
+    <div class="password-form-buttons">
+
+        <button type="button" id="updatePasswordBtn" class="save-btn">
+            <i class="fa-solid fa-lock"></i>
+            Update Password
+        </button>
+
+        <button type="button" id="cancelPasswordBtn" class="cancel-btn">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+            <!-- ACTION BUTTONS -->
+            <div class="profile-actions">
+
+                <button type="button" id="editProfileBtn" class="edit-btn">
+                    <i class="fa-solid fa-pen"></i>
+                    Edit Profile
+                </button>
+
+                <button type="button" id="logoutBtn" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+
+                <button type="button" id="changePasswordBtn" class="edit-btn">
+    <i class="fa-solid fa-key"></i>
+    Change Password
+</button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="../js/profile.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | A1 Herbals</title>
+
+    <link rel="stylesheet" href="../css/products.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            background: #f8faf9;
+            font-family: Arial, sans-serif;
+        }
+
+        .checkout-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 25px;
+        }
+
+        .checkout-section h1 {
+            font-size: 32px;
+            margin-bottom: 35px;
+            color: #222;
+        }
+
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+        }
+
+        .checkout-box {
+            background: white;
+            padding: 28px;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .checkout-box h2 {
+            font-size: 21px;
+            margin-bottom: 22px;
+            color: #222;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #198754;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .payment-option input {
+            accent-color: #198754;
+        }
+
+        .order-product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .order-product img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            border: 1px solid #eee;
+            border-radius: 7px;
+        }
+
+        .order-product-info {
+            flex: 1;
+        }
+
+        .order-product-info h3 {
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+
+        .order-product-info p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 18px 0;
+            color: #555;
+        }
+
+        .summary-total {
+            font-size: 19px;
+            font-weight: 700;
+            color: #198754;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 15px;
+            background: #198754;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .place-order-btn:hover {
+            background: #146c43;
+        }
+
+        .place-order-btn:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        .empty-checkout {
+            text-align: center;
+            padding: 25px 10px;
+            color: #777;
+        }
+
+        .empty-checkout a {
+            display: inline-block;
+            margin-top: 12px;
+            color: #198754;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media(max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="checkout-section">
+
+    <h1>Checkout</h1>
+
+    <div class="checkout-container">
+
+        <div class="checkout-left">
+
+            <div class="checkout-box">
+
+                <h2>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Delivery Address
+                </h2>
+
+                <form id="checkoutForm">
+
+                    <div class="form-group">
+                        <label for="customerName">Full Name</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="customerPhone">Mobile Number</label>
+                            <input type="tel" id="customerPhone"
+                            pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerEmail">Email Address</label>
+                            <input type="email" id="customerEmail" required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerAddress">Full Address</label>
+                        <textarea id="customerAddress" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="customerCity">City</label>
+                            <input type="text" id="customerCity" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerState">State</label>
+                            <input type="text" id="customerState" required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerPincode">PIN Code</label>
+                        <input type="text" id="customerPincode"
+                        pattern="[0-9]{6}" maxlength="6" required>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="checkout-box">
+
+                <h2>
+                    <i class="fa-solid fa-credit-card"></i>
+                    Payment Method
+                </h2>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment"
+                    value="COD" checked>
+                    <span>Cash on Delivery</span>
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment"
+                    value="Online">
+                    <span>Online Payment</span>
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="checkout-right">
+
+            <div class="checkout-box">
+
+                <h2>Order Summary</h2>
+
+                <div id="checkoutProduct">
+                    <p>Loading products...</p>
+                </div>
+
+                <hr>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="checkoutSubtotal">--</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <strong>Calculated later</strong>
+                </div>
+
+                <hr>
+
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <strong id="checkoutTotal">--</strong>
+                </div>
+
+                <button type="submit" form="checkoutForm"
+                class="place-order-btn" id="placeOrderBtn">
+                    Place Order
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+const API_URL = "http://127.0.0.1:5000/api/orders/place";
+
+// ==========================================
+// LOGIN PROTECTION
+// ==========================================
+
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+const registeredUser = JSON.parse(
+    localStorage.getItem("registeredUser") || "null"
+);
+
+if (
+    isLoggedIn !== "true" ||
+    !registeredUser ||
+    !registeredUser.customer_id
+) {
+    alert("Please login to proceed with checkout.");
+    window.location.href = "login.html";
+} else {
+
+    // ==========================================
+    // GET CART
+    // ==========================================
+
+    function getCart() {
+        try {
+            const cart = JSON.parse(
+                localStorage.getItem("shoppingCart") || "[]"
+            );
+
+            return Array.isArray(cart) ? cart : [];
+
+        } catch (error) {
+            console.error("Unable to load cart:", error);
+            return [];
+        }
+    }
+
+    // ==========================================
+    // COUNTRY AND CURRENCY
+    // ==========================================
+
+    const country =
+        localStorage.getItem("selectedCountry") || "IN";
+
+    function formatCheckoutPrice(price) {
+        return country === "US"
+            ? "$" + Number(price).toFixed(2)
+            : "₹" + Number(price).toFixed(2);
+    }
+
+    function getProductPrice(item) {
+        return Number(
+            country === "US" ? item.priceUS : item.priceIN
+        );
+    }
+
+    // ==========================================
+    // DISPLAY CHECKOUT PRODUCTS
+    // ==========================================
+
+    function displayCheckoutProducts() {
+
+        const cart = getCart();
+
+        const container =
+            document.getElementById("checkoutProduct");
+
+        const subtotalElement =
+            document.getElementById("checkoutSubtotal");
+
+        const totalElement =
+            document.getElementById("checkoutTotal");
+
+        const placeOrderBtn =
+            document.getElementById("placeOrderBtn");
+
+        container.innerHTML = "";
+
+        if (cart.length === 0) {
+
+            container.innerHTML = `
+                <div class="empty-checkout">
+                    <p>Your cart is empty.</p>
+                    <a href="products.html">Continue Shopping</a>
+                </div>
+            `;
+
+            subtotalElement.textContent = "--";
+            totalElement.textContent = "--";
+            placeOrderBtn.disabled = true;
+
+            return;
+        }
+
+        let subtotal = 0;
+        let validProducts = 0;
+
+        cart.forEach(function (item) {
+
+            const price = getProductPrice(item);
+            const quantity = Number(item.quantity);
+
+            if (
+                !Number.isFinite(price) ||
+                price <= 0 ||
+                !Number.isInteger(quantity) ||
+                quantity <= 0
+            ) {
+                return;
+            }
+
+            const itemTotal = price * quantity;
+
+            subtotal += itemTotal;
+            validProducts++;
+
+            const productDiv = document.createElement("div");
+            productDiv.className = "order-product";
+
+            const image = document.createElement("img");
+            image.src = item.image;
+            image.alt = item.name || "Product";
+
+            const infoDiv = document.createElement("div");
+            infoDiv.className = "order-product-info";
+
+            const name = document.createElement("h3");
+            name.textContent = item.name || "Product";
+
+            const category = document.createElement("p");
+            category.textContent = item.category || "";
+
+            const quantityText = document.createElement("p");
+            quantityText.textContent = "Quantity: " + quantity;
+
+            const priceText = document.createElement("p");
+            priceText.textContent = formatCheckoutPrice(itemTotal);
+
+            infoDiv.append(
+                name,
+                category,
+                quantityText,
+                priceText
+            );
+
+            productDiv.append(image, infoDiv);
+
+            container.appendChild(productDiv);
+        });
+
+        if (validProducts !== cart.length) {
+
+            container.innerHTML =
+                "<p>Some cart products have invalid details. Please check your cart.</p>";
+
+            subtotalElement.textContent = "--";
+            totalElement.textContent = "--";
+            placeOrderBtn.disabled = true;
+
+            return;
+        }
+
+        subtotalElement.textContent = formatCheckoutPrice(subtotal);
+        totalElement.textContent = formatCheckoutPrice(subtotal);
+
+        placeOrderBtn.disabled = false;
+    }
+
+    // ==========================================
+    // PLACE ORDER - MYSQL API
+    // ==========================================
+
+    document.getElementById("checkoutForm").addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            if (localStorage.getItem("isLoggedIn") !== "true") {
+                alert("Please login before placing an order.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            const customer = {
+                full_name: document.getElementById("customerName").value.trim(),
+                phone: document.getElementById("customerPhone").value.trim(),
+                email: document.getElementById("customerEmail").value.trim(),
+                address_line1: document.getElementById("customerAddress").value.trim(),
+                city: document.getElementById("customerCity").value.trim(),
+                state: document.getElementById("customerState").value.trim(),
+                pincode: document.getElementById("customerPincode").value.trim()
+            };
+
+            const paymentElement =
+                document.querySelector('input[name="payment"]:checked');
+
+            if (!paymentElement) {
+                alert("Please select a payment method.");
+                return;
+            }
+
+            // Validate cart product IDs and quantities
+            const orderItems = [];
+
+            for (const item of cart) {
+
+                const productId = Number(item.id);
+                const quantity = Number(item.quantity);
+
+                if (
+                    !Number.isInteger(productId) ||
+                    productId <= 0 ||
+                    !Number.isInteger(quantity) ||
+                    quantity <= 0
+                ) {
+                    alert("Invalid product details in cart.");
+                    return;
+                }
+
+                orderItems.push({
+                    product_id: productId,
+                    quantity: quantity
+                });
+            }
+
+            const payload = {
+
+                customer_id: Number(registeredUser.customer_id),
+
+                payment_method: paymentElement.value,
+
+                country: country,
+
+                address: {
+                    full_name: customer.full_name,
+                    phone: customer.phone,
+                    address_line1: customer.address_line1,
+                    city: customer.city,
+                    state: customer.state,
+                    pincode: customer.pincode
+                },
+
+                items: orderItems
+            };
+
+            const placeOrderBtn =
+                document.getElementById("placeOrderBtn");
+
+            placeOrderBtn.disabled = true;
+            placeOrderBtn.textContent = "Placing Order...";
+
+            try {
+
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error(
+                        result.message || "Unable to place order."
+                    );
+                }
+
+                // Clear cart only after successful database save
+                localStorage.removeItem("shoppingCart");
+
+                alert(
+                    "Order placed successfully!\n\n" +
+                    "Order ID: " + result.order_id +
+                    "\nTotal: " +
+                    (result.currency === "USD" ? "$" : "₹") +
+                    Number(result.total_amount).toFixed(2) +
+                    "\nPayment Status: " + result.payment_status
+                );
+
+                document.getElementById("checkoutForm").reset();
+
+                displayCheckoutProducts();
+
+            } catch (error) {
+
+                console.error("Order Error:", error);
+
+                alert(
+                    error.message ||
+                    "Unable to place your order. Please try again."
+                );
+
+            } finally {
+
+                placeOrderBtn.textContent = "Place Order";
+
+                if (getCart().length > 0) {
+                    placeOrderBtn.disabled = false;
+                }
+            }
+        }
+    );
+
+    // ==========================================
+    // INITIAL LOAD
+    // ==========================================
+
+    displayCheckoutProducts();
+
+}
+
+</script>
+
+
+</body>
+</html>

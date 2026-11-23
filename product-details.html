@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | A1 Herbals</title>
+
+    <link rel="stylesheet" href="../css/products.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Product Gallery */
+
+        
+.detail-image {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 550px;
+}
+
+.main-product-image {
+    order: 2;
+    flex: 1;
+    min-width: 0;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-thumbnails {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 75px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.product-thumbnail {
+    flex: 0 0 70px;
+    width: 70px;
+    height: 70px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+}
+
+.product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-thumbnail.active {
+    border: 2px solid #222;
+}
+
+@media (max-width: 600px) {
+    .main-product-image {
+        height: 280px;
+    }
+
+    .product-thumbnails {
+        width: 60px;
+    }
+
+    .product-thumbnail {
+        flex-basis: 60px;
+        width: 60px;
+        height: 60px;
+    }
+}
+@media (max-width: 600px) {
+
+            .main-product-image {
+                height: 280px;
+            }
+
+            .product-thumbnail {
+                flex-basis: 65px;
+                width: 65px;
+                height: 65px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+
+        <div class="logo">
+            <a href="../index.html">A1 <span>Herbals</span></a>
+        </div>
+
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html" class="active">Our Products</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <div class="header-icons">
+
+            <a href="profile.html" title="Account">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a href="cart.html" title="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- Breadcrumb -->
+    <section class="detail-breadcrumb">
+
+        <a href="../index.html">Home</a>
+
+        <i class="fa-solid fa-angle-right"></i>
+
+        <a href="products.html">Our Products</a>
+
+        <i class="fa-solid fa-angle-right"></i>
+
+        <span id="breadcrumbProduct">Product Details</span>
+
+    </section>
+
+
+    <!-- Product Details -->
+    <section class="product-detail-section">
+
+        <!-- Product Image Gallery -->
+        <div class="detail-image" id="detailImageContainer">
+
+            <div class="main-product-image">
+
+                <img id="detailImage"
+                     src=""
+                     alt="Product Image">
+
+            </div>
+
+            <!-- Small Thumbnails -->
+            <div class="product-thumbnails"
+                 id="productThumbnails">
+            </div>
+
+        </div>
+
+
+        <!-- Product Information -->
+        <div class="detail-info">
+
+            <span class="detail-category" id="detailCategory">
+                Product Category
+            </span>
+
+            <h1 id="detailName">Product Name</h1>
+
+            <p class="detail-sku">
+                SKU: <span id="detailSKU"></span>
+            </p>
+
+            <div class="detail-divider"></div>
+
+            <h3>Product Information</h3>
+
+            <div class="detail-row">
+
+                <span>Product Name</span>
+
+                <strong id="detailProductName"></strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>Category</span>
+
+                <strong id="detailProductCategory"></strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>Price</span>
+
+                <strong id="detailPrice">Loading...</strong>
+
+            </div>
+
+
+            <!-- Action Buttons -->
+            <div class="product-action-buttons">
+
+                <button type="button"
+                        class="add-to-cart-btn"
+                        id="addToCartBtn">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add to Cart
+
+                </button>
+
+                <button type="button"
+                        class="buy-now-btn"
+                        id="buyNowBtn">
+
+                    Buy Now
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+            <a href="products.html" class="back-products">
+
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Products
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span>Product added successfully!</span>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+const API_URL = "http://127.0.0.1:5000/api/products/";
+
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
+const selectedCountry =
+    localStorage.getItem("selectedCountry") || "IN";
+
+let product = null;
+let productPrice = 0;
+
+const detailImage = document.getElementById("detailImage");
+const productThumbnails = document.getElementById("productThumbnails");
+const priceElement = document.getElementById("detailPrice");
+const cartNotification = document.getElementById("cartNotification");
+
+function showProductImage(imageSrc, selectedIndex) {
+    detailImage.src = imageSrc;
+    detailImage.alt = product.product_name + " Image";
+
+    document.querySelectorAll(".product-thumbnail").forEach((thumb, index) => {
+        thumb.classList.toggle("active", index === selectedIndex);
+    });
+}
+
+function displayProduct(data) {
+    product = data;
+
+    const productName = data.product_name || "Product";
+    const category = data.category_name || "Uncategorized";
+    const sku = data.sku || "Not specified";
+
+    const imagePath = data.product_image || "";
+
+    document.title = productName + " | A1 Herbals";
+
+    document.getElementById("detailName").textContent = productName;
+    document.getElementById("detailCategory").textContent = category;
+    document.getElementById("detailSKU").textContent = sku;
+    document.getElementById("detailProductName").textContent = productName;
+    document.getElementById("detailProductCategory").textContent = category;
+    document.getElementById("breadcrumbProduct").textContent = productName;
+
+    const available = selectedCountry === "US"
+        ? Number(data.available_us) === 1
+        : Number(data.available_in) === 1;
+
+    productPrice = selectedCountry === "US"
+        ? Number(data.price_us)
+        : Number(data.price_in);
+
+    if (!available) {
+        priceElement.textContent = "Not available in this country";
+        document.getElementById("addToCartBtn").disabled = true;
+        document.getElementById("buyNowBtn").disabled = true;
+    } else {
+        priceElement.textContent = selectedCountry === "US"
+            ? "$" + productPrice.toFixed(2)
+            : "₹" + productPrice.toFixed(2);
+
+        document.getElementById("addToCartBtn").disabled = false;
+        document.getElementById("buyNowBtn").disabled = false;
+    }
+
+    productThumbnails.innerHTML = "";
+
+    if (imagePath) {
+        const imageURL = new URL(imagePath, window.location.href).href;
+
+        detailImage.onerror = function () {
+            detailImage.style.display = "none";
+        };
+        detailImage.onload = function () {
+            detailImage.style.display = "block";
+        };
+
+        const thumbnail = document.createElement("button");
+        thumbnail.type = "button";
+        thumbnail.className = "product-thumbnail";
+
+        const thumbImage = document.createElement("img");
+        thumbImage.src = imageURL;
+        thumbImage.alt = productName;
+
+        thumbnail.appendChild(thumbImage);
+        thumbnail.addEventListener("click", () => showProductImage(imageURL, 0));
+
+        productThumbnails.appendChild(thumbnail);
+        showProductImage(imageURL, 0);
+    } else {
+        detailImage.style.display = "none";
+    }
+}
+
+async function loadProduct() {
+    if (!productId) {
+        document.getElementById("detailName").textContent = "Product Not Found";
+        priceElement.textContent = "Product ID is missing";
+        return;
+    }
+
+    try {
+        const response = await fetch(API_URL + encodeURIComponent(productId));
+
+        if (!response.ok) {
+            throw new Error("Product not found");
+        }
+
+        const result = await response.json();
+        const data = result.product || result.data || result;
+
+        if (!data.product_id) {
+            throw new Error("Invalid product data");
+        }
+
+        displayProduct(data);
+
+    } catch (error) {
+        console.error("Product loading error:", error);
+        document.getElementById("detailName").textContent = "Unable to load product";
+        priceElement.textContent = "Please try again.";
+    }
+}
+
+document.getElementById("addToCartBtn").addEventListener("click", function () {
+    if (!product || productPrice <= 0) return;
+
+    let cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+
+    const existingProduct = cart.find(
+        item => Number(item.id) === Number(product.product_id)
+    );
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({
+            id: product.product_id,
+            name: product.product_name,
+            category: product.category_name,
+            image: product.product_image,
+            priceIN: Number(product.price_in),
+            priceUS: Number(product.price_us),
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("shoppingCart", JSON.stringify(cart));
+
+    cartNotification.classList.add("show");
+
+    setTimeout(() => {
+        cartNotification.classList.remove("show");
+    }, 3000);
+});
+
+document.getElementById("buyNowBtn").addEventListener("click", function () {
+    if (!product || productPrice <= 0) return;
+
+    const checkoutProduct = {
+        id: product.product_id,
+        name: product.product_name,
+        category: product.category_name,
+        image: product.product_image,
+        priceIN: Number(product.price_in),
+        priceUS: Number(product.price_us),
+        quantity: 1
+    };
+
+    localStorage.setItem("checkoutProduct", JSON.stringify(checkoutProduct));
+
+    window.location.href = "checkout.html";
+});
+
+loadProduct();
+
+    </script>
+
+</body>
+</html>
